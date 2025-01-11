@@ -1,0 +1,99 @@
+// Array of news data, each containing a title, category, content, and an image URL
+const newsData = [
+    { 
+        title: "Tech Innovations in 2025", 
+        category: "technology", 
+        content: "The latest in technology innovations. As the world enters 2025, technology is advancing at a rapid pace. From artificial intelligence (AI) to the Internet of Things (IoT), we are witnessing groundbreaking changes in how technology is shaping our daily lives. Key innovations like AI-driven robots, self-driving cars, and smart cities are just the beginning of a new era in technology. This article dives deep into what we can expect from tech in the near future. It discusses advancements in machine learning, data science, and quantum computing.",
+        image: "https://via.placeholder.com/350x200?text=Tech+Innovation"
+    },
+    { 
+        title: "Football World Cup Highlights", 
+        category: "sports", 
+        content: "The best moments from the latest football world cup. The 2022 FIFA World Cup was a spectacle like no other. From the last-minute goal celebrations to heart-stopping penalty shootouts, the tournament had fans on the edge of their seats. This article takes you through the best moments, from stunning individual performances to unforgettable team efforts. As we look ahead to the next World Cup, the excitement continues to build! The article also highlights the players who stood out, the shocking upsets, and the teams that surprised the world with their remarkable performances.",
+        image: "https://via.placeholder.com/350x200?text=Football+Highlights"
+    },
+    { 
+        title: "AI and the Future of Work", 
+        category: "technology", 
+        content: "Exploring the impact of artificial intelligence on jobs. Artificial intelligence is transforming industries at an unprecedented rate. While some fear that AI will replace human workers, others see the potential for AI to augment human capabilities and create new job opportunities. This article explores the implications of AI on the future workforce, offering insights into how businesses and employees can adapt to a rapidly changing landscape. With automation and robotics becoming more common, AI is likely to redefine many job roles in the coming decade.",
+        image: "https://via.placeholder.com/350x200?text=AI+Future"
+    },
+    { 
+        title: "New Business Trends for 2025", 
+        category: "business", 
+        content: "What to expect in the business world this year. As we enter 2025, businesses are facing new challenges and opportunities. From embracing remote work and hybrid office models to adopting sustainable practices and focusing on mental health, companies are reshaping their business strategies. This article discusses the top trends in the business world for 2025 and how companies are preparing for the future. Additionally, it explores how companies are using technology, like AI and big data, to enhance productivity and innovation in the workplace.",
+        image: "https://via.placeholder.com/350x200?text=Business+Trends"
+    },
+    { 
+        title: "Oscar Nominations for 2025", 
+        category: "entertainment", 
+        content: "The most anticipated movies of 2025. The Oscar nominations for 2025 are out, and the competition is fierce. This year’s nominees span a wide range of genres, from gripping dramas to light-hearted comedies. Film lovers around the world are eager to see which films and actors will take home the coveted golden statuettes. In this article, we dive into the top contenders and what makes them stand out in a year of impressive cinematic achievements. Among the nominees are films that have pushed the boundaries of storytelling and visual effects.",
+        image: "https://via.placeholder.com/350x200?text=Oscar+Nominations"
+    },
+    { 
+        title: "Global Stock Market Analysis", 
+        category: "business", 
+        content: "An overview of the stock market trends in the new year. As the new year begins, investors are cautiously optimistic about the state of the global stock market. With ongoing economic recovery post-pandemic and shifts in political landscapes, markets are showing signs of both promise and volatility. This article analyzes the key factors influencing stock market trends in 2025, providing investors with insights into what to expect. It covers major indices, commodities, and key market players to watch out for in the new year.",
+        image: "https://via.placeholder.com/350x200?text=Stock+Market"
+    },
+    { 
+        title: "Sports Analytics: A Game Changer", 
+        category: "sports", 
+        content: "How data analytics is transforming the sports industry. In recent years, sports analytics has become an essential tool for teams and coaches across all major sports. With the help of big data, athletes can track their performance, teams can gain insights into opponents’ strategies, and fans can engage with their favorite teams in new and exciting ways. This article explores the rise of sports analytics and its impact on the world of professional sports, including the influence on team selection, performance analysis, and even fan engagement.",
+        image: "https://via.placeholder.com/350x200?text=Sports+Analytics"
+    },
+    { 
+        title: "5G Technology and Its Impact", 
+        category: "technology", 
+        content: "How 5G will revolutionize communication and business. The rollout of 5G networks is set to revolutionize the way we communicate, work, and live. With faster speeds, lower latency, and greater capacity, 5G will enable innovations in industries ranging from healthcare to entertainment. This article explores the potential of 5G technology, how it will affect businesses, and the opportunities it creates for new services and applications. It also highlights the challenges of widespread implementation and its impact on global communication infrastructure.",
+        image: "https://via.placeholder.com/350x200?text=5G+Impact"
+    },
+    { 
+        title: "Space Exploration in 2025", 
+        category: "science", 
+        content: "The future of space exploration is looking brighter than ever. With companies like SpaceX and Blue Origin pushing the boundaries of what is possible, humanity is on the cusp of a new era in space exploration. This article explores the missions planned for 2025, including trips to the Moon, Mars, and beyond, and the technology that will enable these bold adventures into the cosmos. Additionally, it discusses the growing role of private companies in space travel and how they are partnering with government agencies to achieve these ambitious goals.",
+        image: "https://via.placeholder.com/350x200?text=Space+Exploration"
+    },
+    { 
+        title: "Mental Health Awareness and 2025 Trends", 
+        category: "health", 
+        content: "Mental health awareness is at an all-time high, and with 2025 approaching, there’s a growing focus on addressing mental health challenges. This article explores emerging trends in mental health care, from teletherapy to mindfulness practices, and how society is evolving its approach to supporting mental well-being. With a focus on inclusivity, the mental health space is moving toward broader accessibility and better care for all individuals. It also discusses the role of technology in improving mental health services through apps and digital resources.",
+        image: "https://via.placeholder.com/350x200?text=Mental+Health"
+    }
+];
+
+// Function to display news based on the selected category
+const categoryFilter = document.getElementById('categoryFilter');
+const newsList = document.getElementById('newsList');
+
+// Function to display news
+function displayNews(category) {
+    // Clear the previous news
+    newsList.innerHTML = "";
+
+    // Filter the news articles based on category
+    const filteredNews = category === "all" 
+        ? newsData 
+        : newsData.filter(news => news.category === category);
+
+    // Loop through the filtered news data and create news elements
+    filteredNews.forEach(news => {
+        const newsItem = document.createElement('div');
+        newsItem.classList.add('news-item');
+        newsItem.innerHTML = `
+            <img src="${news.image}" alt="${news.title}">
+            <h3>${news.title}</h3>
+            <p>${news.content}</p>
+        `;
+        newsList.appendChild(newsItem);
+    });
+}
+
+// Display all news initially
+displayNews('all');
+
+// Add event listener for filter changes
+categoryFilter.addEventListener('change', (event) => {
+    const selectedCategory = event.target.value;
+    displayNews(selectedCategory);
+});
