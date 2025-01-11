@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized News Recommendation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Main Header Section -->
+    <header>
+        <h1>Personalized News Recommendation System</h1>
+        <p>Stay updated with the latest news in various categories.</p>
+    </header>
+
+    <!-- Main Content Container -->
+    <div class="container">
+
+        <!-- Filter Section -->
+        <div class="filters">
+            <h2>Filter News By Category</h2>
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+                <option value="technology">Technology</option>
+                <option value="sports">Sports</option>
+                <option value="business">Business</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="health">Health</option>
+                <option value="science">Science</option>
+                <option value="education">Education</option>
+                <option value="politics">Politics</option>
+            </select>
+            <p>Choose a category to explore the latest articles.</p>
+        </div>
+
+        <!-- News List Display Section -->
+        <div class="news-list" id="newsList">
+            <!-- News items will be dynamically inserted here -->
+        </div>
+
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Personalized News. All Rights Reserved.</p>
+        <p>Created by Your Name</p>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="script.js"></script>
+</body>
+</html>
